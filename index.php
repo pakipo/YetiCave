@@ -1,4 +1,13 @@
 <?php
+function formatPrice($price):string{
+$price = ceil($price);
+if($price > 1000){
+    $price = number_format($price,0,"."," " );
+}
+
+return $price . ' ₽';
+}
+
 $is_auth = rand(0, 1);
 $category = [
     'boards'=>'Доски и лыжи',
@@ -119,7 +128,7 @@ $user_name = 'DIMA'; // укажите здесь ваше имя
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?= $v['price'] ?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?= formatPrice($v['price']) ?></span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
