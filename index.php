@@ -59,7 +59,7 @@ $user_name = 'DIMA'; // укажите здесь ваше имя
 $main = include_template('main.php',['category'=>$category,'lots' =>$lots]);
 $layout = include_template('layout.php',['category'=>$category,'lots' =>$lots,'main' => $main,'title' => $title]);
 
-echo($layout);
+print($layout);
 ?>
 
 

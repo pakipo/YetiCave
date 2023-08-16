@@ -45,7 +45,7 @@
 </header>
 
 <?php
-echo($main);
+print($main);
 ?>
 </div>
 
