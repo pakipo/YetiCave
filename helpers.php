@@ -142,4 +142,13 @@ function include_template($name, array $data = []) {
     return $result;
 }
 
+function formatPrice($price):string{
+    $price = ceil($price);
+    if($price > 1000){
+        $price = number_format($price,0,"."," " );
+    }
+    
+    return $price . ' ₽';
+    }
+
 
