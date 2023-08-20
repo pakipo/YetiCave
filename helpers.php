@@ -151,4 +151,13 @@ function formatPrice($price):string{
     return $price . ' ₽';
     }
 
+function get_dt_range(string $date){
 
+$format_diff = date_interval_format(
+    date_diff(date_create($date),date_create()),
+    '%d %H %I');
+    $arr = explode(" ",$format_diff);
+  $hours = str_pad($arr[0] * 24 + $arr[1],2,STR_PAD_LEFT);
+  $min = str_pad($arr[2],2,STR_PAD_LEFT);
+return [ $hours,$min];
+}
