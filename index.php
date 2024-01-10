@@ -2,8 +2,8 @@
 
 require_once('helpers.php');
 require_once('data.php');
-
-
+$category = get_category();
+$lots = get_lots();
 $title = 'Главная';
 $is_auth = rand(0, 1);
 $user_name = 'DIMA'; // укажите здесь ваше имя

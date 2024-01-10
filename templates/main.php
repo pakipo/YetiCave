@@ -5,8 +5,8 @@
         <ul class="promo__list">
             <!--заполните этот список из массива категорий-->
             <?php foreach ($category as $key => $value): ?>
-                 <li class="promo__item promo__item--<?= $key ?>">
-                 <a class="promo__link" href="pages/all-lots.html"><?= $value ?></a>
+                 <li class="promo__item promo__item--<?= $value['character_code'] ?>">
+                 <a class="promo__link" href="pages/all-lots.html"><?= $value['name_category'] ?></a>
              </li>
              <?php endforeach;?>
          
@@ -24,15 +24,15 @@
                     <img src="<?= $v['img']?>" width="350" height="260" alt="">
                 </div>
                 <div class="lot__info">
-                    <span class="lot__category"><?= htmlspecialchars($v['categoty']) ?></span>
-                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= htmlspecialchars($v['name']) ?></a></h3>
+                    <span class="lot__category"><?= htmlspecialchars($v['character_code']) ?></span>
+                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= htmlspecialchars($v['title']) ?></a></h3>
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?= formatPrice($v['price']) ?></span>
+                            <span class="lot__cost"><?= formatPrice($v['start_price']) ?></span>
                         </div>
                         <div class="lot__timer timer">
-                            12:23
+                           <?= date("F j, g:i",strtotime($v['date_creation']))?>
                         </div>
                     </div>
                 </div>
