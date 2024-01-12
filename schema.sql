@@ -29,7 +29,7 @@ CREATE TABLE lots(
      lot_description TEXT,
      img VARCHAR(255),
      start_price INT,
-     date_finish  DATE,
+     date_finish  DATETIME,
      step INT,
      user_id INT,
      winner_id INT,

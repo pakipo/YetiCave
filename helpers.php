@@ -151,4 +151,21 @@ function formatPrice($price):string{
     return $price . ' ₽';
     }
 
-
+    /**
+     * Возвращает разницу  между текущим временем и переданным
+     * @param string $date
+     * @return  ['hours' => number,'min' => number]
+     */
+function get_time_diff(string $date){
+   date_default_timezone_set('Europe/Moscow');
+   $curr = time();
+   $dt = strtotime($date);
+   if($curr > $dt){
+    return ['hours'=>0,'min'=>0];
+   }
+   $diff = strtotime($date) -  time();
+   $hour = floor($diff/3600);
+   $hour > 0 ? $diff -=  $hour*3600 : null;
+   $min = floor($diff/60);
+   return ['hours' => $hour,'min' => $min];
+}
