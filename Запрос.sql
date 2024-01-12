@@ -1,3 +1,0 @@
-UPDATE lots
-SET date_finish = DATE(ADDDATE(NOW(), INTERVAL 1 HOUR))
-WHERE id =4;
