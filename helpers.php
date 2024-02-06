@@ -74,6 +74,10 @@ function db_get_prepare_stmt($link, $sql, $data = []) {
     return $stmt;
 }
 
+function getPostVal() {
+    return "getPOsrt";
+}
+
 /**
  * Возвращает корректную форму множественного числа
  * Ограничения: только для целых чисел

@@ -47,28 +47,28 @@ INSERT INTO lots
       winner_id,
       category_id
 ) values
-(SUBDATE(NOW(), INTERVAL 1 HOUR),'2014 Rossignol District Snowboard','Легкий маневренный сноуборд, готовый дать жару в любом парке','img/lot-1.jpg',10999, ADDDATE(NOW(), INTERVAL 1 HOUR),500,NULL,NULL,(SELECT id FROM categories WHERE character_code = 'boards')),
-(SUBDATE(NOW(), INTERVAL 2 HOUR),'2021 Rossignol District Snowboard','Легкий маневренный сноуборд, готовый дать жару в любом парке','img/lot-1.jpg',10999, ADDDATE(NOW(), INTERVAL 3 HOUR),500,NULL,NULL,(SELECT id FROM categories WHERE character_code = 'boards')),
-(SUBDATE(NOW(), INTERVAL 3 HOUR),'2022 Rossignol District Snowboard','Легкий маневренный сноуборд, готовый дать жару в любом парке','img/lot-1.jpg',10999, ADDDATE(NOW(), INTERVAL 4 HOUR),500,NULL,NULL,(SELECT id FROM categories WHERE character_code = 'boards')),
-(SUBDATE(NOW(), INTERVAL 4 HOUR),'2023 Rossignol District Snowboard','Легкий маневренный сноуборд, готовый дать жару в любом парке','img/lot-1.jpg',10999, ADDDATE(NOW(), INTERVAL 5 HOUR),500,NULL,NULL,(SELECT id FROM categories WHERE character_code = 'boards')),
+(SUBDATE(NOW(), INTERVAL 1 HOUR),'2014 Rossignol District Snowboard','Легкий маневренный сноуборд, готовый дать жару в любом парке','uploads/lot-1.jpg',10999, ADDDATE(NOW(), INTERVAL 1 HOUR),500,NULL,NULL,(SELECT id FROM categories WHERE character_code = 'boards')),
+(SUBDATE(NOW(), INTERVAL 2 HOUR),'2021 Rossignol District Snowboard','Легкий маневренный сноуборд, готовый дать жару в любом парке','uploads/lot-1.jpg',10999, ADDDATE(NOW(), INTERVAL 3 HOUR),500,NULL,NULL,(SELECT id FROM categories WHERE character_code = 'boards')),
+(SUBDATE(NOW(), INTERVAL 3 HOUR),'2022 Rossignol District Snowboard','Легкий маневренный сноуборд, готовый дать жару в любом парке','uploads/lot-1.jpg',10999, ADDDATE(NOW(), INTERVAL 4 HOUR),500,NULL,NULL,(SELECT id FROM categories WHERE character_code = 'boards')),
+(SUBDATE(NOW(), INTERVAL 4 HOUR),'2023 Rossignol District Snowboard','Легкий маневренный сноуборд, готовый дать жару в любом парке','uploads/lot-1.jpg',10999, ADDDATE(NOW(), INTERVAL 5 HOUR),500,NULL,NULL,(SELECT id FROM categories WHERE character_code = 'boards')),
 
-(SUBDATE(NOW(), INTERVAL 5 HOUR),'DC Ply Mens 2016/2017 Snowboard','Легкий маневренный сноуборд, готовый дать жару в любом парке','img/lot-1.jpg',159999,"2022-07-16 16:37:23",500,(SELECT id FROM users WHERE user_name = 'user1'),NULL,(SELECT id FROM categories WHERE character_code = 'boards')),
+(SUBDATE(NOW(), INTERVAL 5 HOUR),'DC Ply Mens 2016/2017 Snowboard','Легкий маневренный сноуборд, готовый дать жару в любом парке','uploads/lot-1.jpg',159999,"2022-07-16 16:37:23",500,(SELECT id FROM users WHERE user_name = 'user1'),NULL,(SELECT id FROM categories WHERE character_code = 'boards')),
 
-(SUBDATE(NOW(), INTERVAL 6 HOUR),'Крепления Union Contact Pro 2015 года размер L/XL','Легкие и надежные крепления','img/lot-3.jpg',8000,ADDDATE(NOW(), INTERVAL 6 HOUR),500,(SELECT id FROM users WHERE user_name = 'user1'),NULL,(SELECT id FROM categories WHERE character_code = 'attachment')),
+(SUBDATE(NOW(), INTERVAL 6 HOUR),'Крепления Union Contact Pro 2015 года размер L/XL','Легкие и надежные крепления','uploads/lot-3.jpg',8000,ADDDATE(NOW(), INTERVAL 6 HOUR),500,(SELECT id FROM users WHERE user_name = 'user1'),NULL,(SELECT id FROM categories WHERE character_code = 'attachment')),
 
-(SUBDATE(NOW(), INTERVAL 7 HOUR),'Крепления Union Contact Pro 2016 года размер L/XL','Легкие и надежные крепления','img/lot-3.jpg',8000,ADDDATE(NOW(), INTERVAL 7 HOUR),500,(SELECT id FROM users WHERE user_name = 'user1'),NULL,(SELECT id FROM categories WHERE character_code = 'attachment')),
+(SUBDATE(NOW(), INTERVAL 7 HOUR),'Крепления Union Contact Pro 2016 года размер L/XL','Легкие и надежные крепления','uploads/lot-3.jpg',8000,ADDDATE(NOW(), INTERVAL 7 HOUR),500,(SELECT id FROM users WHERE user_name = 'user1'),NULL,(SELECT id FROM categories WHERE character_code = 'attachment')),
 
-(SUBDATE(NOW(), INTERVAL 8 HOUR),'Крепления Union Contact Pro 2017 года размер L/XL','Легкие и надежные крепления','img/lot-3.jpg',8000,ADDDATE(NOW(), INTERVAL 8 HOUR),500,(SELECT id FROM users WHERE user_name = 'user1'),NULL,(SELECT id FROM categories WHERE character_code = 'attachment')),
+(SUBDATE(NOW(), INTERVAL 8 HOUR),'Крепления Union Contact Pro 2017 года размер L/XL','Легкие и надежные крепления','uploads/lot-3.jpg',8000,ADDDATE(NOW(), INTERVAL 8 HOUR),500,(SELECT id FROM users WHERE user_name = 'user1'),NULL,(SELECT id FROM categories WHERE character_code = 'attachment')),
 
-(SUBDATE(NOW(), INTERVAL 9 HOUR),'Крепления Union Contact Pro 2018 года размер L/XL','Легкие и надежные крепления','img/lot-3.jpg',8000,ADDDATE(NOW(), INTERVAL 9 HOUR),500,(SELECT id FROM users WHERE user_name = 'user1'),NULL,(SELECT id FROM categories WHERE character_code = 'attachment')),
+(SUBDATE(NOW(), INTERVAL 9 HOUR),'Крепления Union Contact Pro 2018 года размер L/XL','Легкие и надежные крепления','uploads/lot-3.jpg',8000,ADDDATE(NOW(), INTERVAL 9 HOUR),500,(SELECT id FROM users WHERE user_name = 'user1'),NULL,(SELECT id FROM categories WHERE character_code = 'attachment')),
 
-(SUBDATE(NOW(), INTERVAL 10 HOUR),'Ботинки для сноуборда DC Mutiny Charocal1','Удобные и легкие ботинки','img/lot-4.jpg',10999,ADDDATE(NOW(), INTERVAL 12 HOUR),500,(SELECT id FROM users WHERE user_name = 'user2'),NULL,(SELECT id FROM categories WHERE character_code = 'boots')),
-(SUBDATE(NOW(), INTERVAL 11 HOUR),'Ботинки для сноуборда DC Mutiny Charocal2','Удобные и легкие ботинки','img/lot-4.jpg',10999,ADDDATE(NOW(), INTERVAL 13 HOUR),500,(SELECT id FROM users WHERE user_name = 'user2'),NULL,(SELECT id FROM categories WHERE character_code = 'boots')),
-(SUBDATE(NOW(), INTERVAL 12 HOUR),'Ботинки для сноуборда DC Mutiny Charocal3','Удобные и легкие ботинки','img/lot-4.jpg',10999,ADDDATE(NOW(), INTERVAL 14 HOUR),500,(SELECT id FROM users WHERE user_name = 'user2'),NULL,(SELECT id FROM categories WHERE character_code = 'boots')),
+(SUBDATE(NOW(), INTERVAL 10 HOUR),'Ботинки для сноуборда DC Mutiny Charocal1','Удобные и легкие ботинки','uploads/lot-4.jpg',10999,ADDDATE(NOW(), INTERVAL 12 HOUR),500,(SELECT id FROM users WHERE user_name = 'user2'),NULL,(SELECT id FROM categories WHERE character_code = 'boots')),
+(SUBDATE(NOW(), INTERVAL 11 HOUR),'Ботинки для сноуборда DC Mutiny Charocal2','Удобные и легкие ботинки','uploads/lot-4.jpg',10999,ADDDATE(NOW(), INTERVAL 13 HOUR),500,(SELECT id FROM users WHERE user_name = 'user2'),NULL,(SELECT id FROM categories WHERE character_code = 'boots')),
+(SUBDATE(NOW(), INTERVAL 12 HOUR),'Ботинки для сноуборда DC Mutiny Charocal3','Удобные и легкие ботинки','uploads/lot-4.jpg',10999,ADDDATE(NOW(), INTERVAL 14 HOUR),500,(SELECT id FROM users WHERE user_name = 'user2'),NULL,(SELECT id FROM categories WHERE character_code = 'boots')),
 
-(SUBDATE(NOW(), INTERVAL 13 HOUR),'Куртка для сноуборда DC Mutiny Charocal4','Теплая и стильная куртка','img/lot-5.jpg',7500,ADDDATE(NOW(), INTERVAL 2 HOUR),500,NULL,NULL,(SELECT id FROM categories WHERE character_code = 'clothing')),
+(SUBDATE(NOW(), INTERVAL 13 HOUR),'Куртка для сноуборда DC Mutiny Charocal4','Теплая и стильная куртка','uploads/lot-5.jpg',7500,ADDDATE(NOW(), INTERVAL 2 HOUR),500,NULL,NULL,(SELECT id FROM categories WHERE character_code = 'clothing')),
 
-(SUBDATE(NOW(), INTERVAL 14 HOUR),'Маска Oakley Canopy','Маска для морозной погоды','img/lot-6.jpg',5400,ADDDATE(NOW(), INTERVAL 2 DAY),500,(SELECT id FROM users WHERE user_name = 'user2'),NULL,(SELECT id FROM categories WHERE character_code = 'other'));
+(SUBDATE(NOW(), INTERVAL 14 HOUR),'Маска Oakley Canopy','Маска для морозной погоды','uploads/lot-6.jpg',5400,ADDDATE(NOW(), INTERVAL 2 DAY),500,(SELECT id FROM users WHERE user_name = 'user2'),NULL,(SELECT id FROM categories WHERE character_code = 'other'));
 
 
   INSERT INTO bets (
