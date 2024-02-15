@@ -1,7 +1,7 @@
 <?php 
 require('helpers.php');
 require('data.php');
-require('validators.php');
+require('validators_lot_form.php');
 
 $category = get_category();
 $title = $lot['title'];

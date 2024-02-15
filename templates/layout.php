@@ -113,6 +113,5 @@ print($main);
 
 <script src="flatpickr.js"></script>
 <script src="script.js"></script>
-<script src="events.js"></script>
 </body>
 </html>

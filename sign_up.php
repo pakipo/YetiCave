@@ -3,12 +3,11 @@
 require_once('helpers.php');
 require_once('data.php');
 $category = get_category();
-$lots = get_lots();
-$title = 'Главная';
+$title = 'Регистрация';
 ?>
 
 <?php
-$main = include_template('main.php',[
+$main = include_template('sign-up.php',[
     'category'=>$category,
     'lots' =>$lots]);
 $layout = include_template('layout.php',[
@@ -21,5 +20,3 @@ $layout = include_template('layout.php',[
 
 print($layout);
 ?>
-
-

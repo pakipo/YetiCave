@@ -126,5 +126,5 @@ function get_lot($id)
     }
 }
 
-$is_auth = true;
+$is_auth = 1;
 $user_name = 'DM';
