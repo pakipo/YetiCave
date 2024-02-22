@@ -1,10 +1,19 @@
 <?php
 
 require_once('helpers.php');
-require_once('data.php');
+require_once('data/data.php');
+require('services/session_service.php');
+
 $category = get_category();
 $lots = get_lots();
 $title = 'Главная';
+if(isset($_GET['out'])){
+    end_session();
+}else{
+    session_init();
+}
+
+
 ?>
 
 <?php

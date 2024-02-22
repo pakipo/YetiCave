@@ -1,5 +1,7 @@
 <?php
+require('data/prepared_expressions.php');
 $db_con = null;
+
 function init(){
     $count = 0;
     function connect(){
@@ -60,23 +62,15 @@ function get_lots($id = null)
     }
 }
 function add_lot($lot){
-    global $db_con,$user_name;
+    global $db_con,$user_name,$PE_LOT_INSERT;
     if (empty($db_con)) {
         init();
     }
+
      if (isset($db_con)) {
-    $sql = "INSERT INTO lots (
-        date_creation,
-        title,
-        lot_description,
-        img,
-        start_price,
-        date_finish,
-        step,
-        user_id,
-        category_id
-  ) values (?,?,?,?,?,?,?,?,?)";
-        $stmt = mysqli_prepare($db_con, $sql);
+     if(empty($PE_LOT_INSERT)){
+        set_pe_lot_insert($db_con);
+    }
         //var-start--------------
         $title = $lot["lot-name"];
         $title = htmlspecialchars($title);
@@ -93,16 +87,17 @@ function add_lot($lot){
         $u_id = 1;
          //var-end--------------
 
-        mysqli_stmt_bind_param($stmt, 'ssssisiii',
+        mysqli_stmt_bind_param($PE_LOT_INSERT, 'ssssisiii',
         $now, $title, $decr, $img,$price,$finish,$step,$u_id,$cat);
-       $ex = mysqli_stmt_execute($stmt);
+       $ex = mysqli_stmt_execute($PE_LOT_INSERT);
        if($ex){
-return mysqli_insert_id($db_con);
+            return mysqli_insert_id($db_con);
        }else{
         return null;
        }
  }
 }
+
 function get_lot($id)
 {
     global $db_con;
@@ -125,6 +120,83 @@ function get_lot($id)
         }
     }
 }
+function isDublicateEmail($email){
+    global $db_con;
+    if (empty($db_con)) {
+        init();
+    }
+    if (isset($db_con)) {
+    $sql = "SELECT * FROM USERS WHERE email = '$email'";
+    $r = mysqli_query($db_con,$sql); 
+   
+    if (!$r) {
+        $msg = mysqli_error($db_con);
+        print('Ошибка БД: ' . $msg);
+    } else { 
+      return !!mysqli_fetch_assoc($r);
+    }
+  }
+}
 
-$is_auth = 1;
-$user_name = 'DM';
+function isDublicateName($name){
+    global $db_con;
+    if (empty($db_con)) {
+        init();
+    }
+    if (isset($db_con)) {
+    $sql = "SELECT * FROM USERS WHERE user_name = '$name'";
+    $r = mysqli_query($db_con,$sql); 
+   
+    if (!$r) {
+        $msg = mysqli_error($db_con);
+        print('Ошибка БД: ' . $msg);
+    } else { 
+      return !!mysqli_fetch_assoc($r);
+    }
+  }
+}
+
+function add_user($user){
+    global $db_con,$PE_USER_INSERT;
+    if (empty($db_con)) {
+        init();
+    }
+
+     if (isset($db_con)) {
+     if(empty($PE_USER_INSERT)){
+        set_pe_user_insert($db_con);
+    }
+        //var-start--------------
+        $name = $user["name"];
+        $email = $user["email"];
+        $pas = $user["password"];
+        $cont = $user["message"];
+         //var-end--------------
+        mysqli_stmt_bind_param($PE_USER_INSERT, 'ssss',
+        $email, $name, $pas,$cont);
+       $ex = mysqli_stmt_execute($PE_USER_INSERT);
+       if($ex){
+          return get_user(mysqli_insert_id($db_con));
+       }else{
+        return null;
+       }
+ }
+
+}
+function get_user($id){
+    global $db_con,$PE_USER_INSERT;
+    if (empty($db_con)) {
+        init();
+    }
+    if (isset($db_con)) {
+    $sql = "SELECT * FROM USERS WHERE id = $id";
+    $r = mysqli_query($db_con, $sql);
+    if (!$r) {
+        $msg = mysqli_error($db_con);
+        print('Ошибка БД: ' . $msg);
+    } else {
+        return  mysqli_fetch_assoc($r);
+    }
+}
+}
+

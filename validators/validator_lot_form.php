@@ -5,7 +5,7 @@ $ids_arr = [];
 $lot = null;
 const ERR_MSG_MIN_LEN = 20;
 const ERR_MSG_MAX_LEN = 250;
-function validate_add_lot_form(&$form, $ids)
+function validate_form(&$form, $ids)
 {
     global $errors, $ids_arr, $lot, $rules, $required;
   

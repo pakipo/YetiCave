@@ -1,7 +1,7 @@
 <?php 
 require('helpers.php');
-require('data.php');
-require('validators_lot_form.php');
+require('data/data.php');
+require('validators/validator_lot_form.php');
 
 $category = get_category();
 $title = $lot['title'];
@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD']=== 'POST'){
         $ids_arr[]=$c['id'];
     } 
 
-    $errors = validate_add_lot_form($form, $ids_arr);
+    $errors =  validate_form($form, $ids_arr);
     if(empty($errors)){
         $lot_id = add_lot($form);
        if(!empty($lot_id)){

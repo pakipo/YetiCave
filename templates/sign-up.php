@@ -21,31 +21,44 @@
         </li>
       </ul>
     </nav>
-    <form class="form container form--invalid" action="https://echo.htmlacademy.ru" method="post" autocomplete="off"> <!-- form
+    <form class="form container  <?= !empty($errors)?'form--invalid':''?>" action="sign_up.php" method="post" autocomplete="off"> <!-- form
     --invalid -->
       <h2>Регистрация нового аккаунта</h2>
-      <div class="form__item"> <!-- form__item--invalid -->
+      <!-- email -->
+      <?php $err = isset($errors)&&isset($errors['email'])?$errors['email']:null; ?>
+      <div class="form__item <?= isset($err)?'form__item--invalid':'' ?>"> <!-- form__item--invalid -->
         <label for="email">E-mail <sup>*</sup></label>
-        <input id="email" type="text" name="email" placeholder="Введите e-mail">
-        <span class="form__error">Введите e-mail</span>
+        <input 
+        id="email"
+        value="<?= isset($form)&&isset($form['email'])?$form['email']:''?>"
+        type="text"
+        name="email"
+        placeholder="Введите e-mail">
+        <span class="form__error"><?= $err ?></span>
       </div>
-      <div class="form__item">
+      <!-- password -->
+      <?php $err = isset($errors)&&isset($errors['password'])?$errors['password']:null ?>
+      <div class="form__item <?= isset($err)?'form__item--invalid':''?>">
         <label for="password">Пароль <sup>*</sup></label>
-        <input id="password" type="password" name="password" placeholder="Введите пароль">
-        <span class="form__error">Введите пароль</span>
+        <input id="password" type="password" name="password" value="<?=  isset($form)&&isset($form['password'])?$form['password']:'' ?>"  placeholder="Введите пароль">
+        <span class="form__error"><?= $err?></span>
       </div>
-      <div class="form__item">
+      <!-- name -->
+      <?php $err = isset($errors)&&isset($errors['name']) ? $errors['name'] : null ?>
+      <div class="form__item <?= isset($err)?'form__item--invalid':''?>">
         <label for="name">Имя <sup>*</sup></label>
-        <input id="name" type="text" name="name" placeholder="Введите имя">
-        <span class="form__error">Введите имя</span>
+        <input id="name" value="<?= isset($form)&&isset($form['name'])?$form['name']:'' ?>" type="text" name="name" placeholder="Введите имя">
+        <span class="form__error"><?=$err?></span>
       </div>
+      <!-- massege -->
       <div class="form__item">
         <label for="message">Контактные данные <sup>*</sup></label>
-        <textarea id="message" name="message" placeholder="Напишите как с вами связаться"></textarea>
+        <textarea id="message" name="message" placeholder="Напишите как с вами связаться"><?=  isset($form)&&isset($form['message'])?$form['message']:'' ?></textarea>
         <span class="form__error">Напишите как с вами связаться</span>
       </div>
-      <span class="form__error form__error--bottom">Пожалуйста, исправьте ошибки в форме.</span>
+      <span class="form__error form__error--bottom" >Пожалуйста, исправьте ошибки в форме.</span>
       <button type="submit" class="button">Зарегистрироваться</button>
+
       <a class="text-link" href="#">Уже есть аккаунт</a>
     </form>
-  </main>
+  </main> 

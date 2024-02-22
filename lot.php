@@ -1,6 +1,6 @@
 <?php 
 require_once('helpers.php');
-require_once('data.php');
+require_once('data/data.php');
 $id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
 $lot = get_lot($id);
 $category = get_category();

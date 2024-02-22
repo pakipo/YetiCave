@@ -16,7 +16,7 @@ CREATE TABLE users (
     date_registration DATETIME DEFAULT CURRENT_TIMESTAMP,
     email VARCHAR(128) NOT NULL,
     user_name VARCHAR(128),
-    uesr_password CHAR(12),
+    uesr_password CHAR(255),
     contacts TEXT,
     UNIQUE(email),
     PRIMARY KEY(id)
@@ -49,4 +49,4 @@ CREATE TABLE bets (
     PRIMARY KEY(id),
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (lot_id) REFERENCES lots(id)
-);
+);usersusers
