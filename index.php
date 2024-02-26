@@ -25,7 +25,7 @@ $layout = include_template('layout.php',[
     'main' => $main,
     'title' => $title,
     'is_auth'=>$is_auth,
-    'user_name' => $user_name
+    'user_name' => $user['user_name']
 ]);
 
 print($layout);

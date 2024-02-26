@@ -16,10 +16,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 if(empty($errors)&&isset($form)){
     $form['password'] = password_hash($form['password'],PASSWORD_DEFAULT);
 
-    $user = add_user($form);
-    if(!empty($user)){
+    $user_id = add_user($form);
+    if(!empty( $user_id )){
+      //  var_dump($user_id);die;
           start_session();
-          set_user($user['user_name']);
+          set_user( $user_id );
     header("Location: /");
     }
   
@@ -34,7 +35,7 @@ if(empty($errors)&&isset($form)){
         'main' => $main,
         'title' => $title,
         'is_auth'=>$is_auth,
-        'user_name' => $user_name
+        'user_name' => $user['user_name']
     ]);
     
     print($layout);

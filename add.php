@@ -2,11 +2,17 @@
 require('helpers.php');
 require('data/data.php');
 require('validators/validator_lot_form.php');
+require('services/session_service.php');
 
 $category = get_category();
 $title = $lot['title'];
 $errors = [];
 $form = [];
+if(isset($_GET['out'])){
+    end_session();
+}else{
+    session_init();
+}
 if($_SERVER['REQUEST_METHOD']=== 'POST'){
     $form = filter_input_array(INPUT_POST,FILTER_DEFAULT);
     $ids_arr = [];
@@ -31,7 +37,7 @@ if($_SERVER['REQUEST_METHOD']=== 'POST'){
 }
 
 function renderer_page(){
-    global $errors,$category, $title,$is_auth,$user_name,$form;
+    global $errors,$category, $title,$is_auth,$user,$form;
   // RENDERER
 if(isset($errors)){
     $form_page = include_template('add_lot.php',
@@ -46,7 +52,7 @@ if(isset($errors)){
  'title' => $title,
  'category'=>$category,
  'is_auth' => $is_auth,
- 'user_name' => $user_name
+ 'user_name' =>  $user['user_name']
  ]
  );
  print($layout);

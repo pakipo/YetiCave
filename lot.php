@@ -1,10 +1,21 @@
 <?php 
 require_once('helpers.php');
 require_once('data/data.php');
+require('services/session_service.php');
+
 $id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
-$lot = get_lot($id);
+if(!empty($id)){
+   $lot = get_lot($id); 
+}
+
 $category = get_category();
 $title = $lot['title'];
+if(isset($_GET['out'])){
+  
+    end_session();
+}else{
+    session_init();
+}
 if(isset($lot)){
    $lot_page = include_template('lot_tmpl.php',[
     'lot'=>$lot,
@@ -21,7 +32,7 @@ $layout = include_template('layout.php',[
 'title' => $title,
 'category'=>$category,
 'is_auth' => $is_auth,
-'user_name' => $user_name
+'user_name' =>  $user['user_name']
 ]
 );
 print($layout);

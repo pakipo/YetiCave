@@ -1,5 +1,5 @@
 <?php
-$user_name = null;
+$user = null;
 $is_auth = 0;
 function start_session(){
     ini_set('session.cookie_lifetime', 86400);
@@ -8,22 +8,30 @@ function start_session(){
 }
 function end_session(){
     $_SESSION = [];
-} 
-function set_user($name = false){
-    global $user_name,$is_auth;
-   
-    if(!empty($name)){
-        $_SESSION['username'] = $name;
-        $user_name = $name;
-        $is_auth = 1;
-        return;
+}
+function set_user($u = false){
+    global $user,$is_auth;
+    if(!empty($u)&&is_numeric($u)){
+        $usr = get_user_id($u);
+        if(!empty($usr)){
+            $_SESSION['username'] = $usr['id'];
+            $user = $usr;
+            $is_auth = 1;
+            return;
+        }
+       
+    }else if(!empty($u)){
+            $user = $u;
+            $_SESSION['username'] = $u['id'];
+            $is_auth = 1;
+       
     }else{
-        if(!empty($_SESSION['username'])){
-            $user_name = $_SESSION['username'];
+          if(!empty($_SESSION['username'])){
+            $usr = get_user_id($_SESSION['username']);
+            $user = $usr;
             $is_auth = 1;
         }
     }
-
 }
 
 function session_init(){
