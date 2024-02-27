@@ -21,9 +21,9 @@
         </li>
       </ul>
     </nav>
-    <form class="form container  <?= !empty($errors)?'form--invalid':''?>" action="sign_up.php" method="post" autocomplete="off"> <!-- form
+    <form class="form container  <?= !empty($errors)?'form--invalid':''?>" action="<?=empty($is_sign_in)?'registration.php':'sign_in.php'?>" method="post" autocomplete="off"> <!-- form
     --invalid -->
-      <h2>Регистрация нового аккаунта</h2>
+      <h2><?=empty($is_sign_in)?'Регистрация нового аккаунта':'Вход в аккаунт'?></h2>
       <!-- email -->
       <?php $err = isset($errors)&&isset($errors['email'])?$errors['email']:null; ?>
       <div class="form__item <?= isset($err)?'form__item--invalid':'' ?>"> <!-- form__item--invalid -->
@@ -44,21 +44,29 @@
         <span class="form__error"><?= $err?></span>
       </div>
       <!-- name -->
+      <?php if(empty($is_sign_in)):?>
       <?php $err = isset($errors)&&isset($errors['name']) ? $errors['name'] : null ?>
       <div class="form__item <?= isset($err)?'form__item--invalid':''?>">
         <label for="name">Имя <sup>*</sup></label>
         <input id="name" value="<?= isset($form)&&isset($form['name'])?$form['name']:'' ?>" type="text" name="name" placeholder="Введите имя">
         <span class="form__error"><?=$err?></span>
       </div>
+      <?php endif;?>
+
       <!-- massege -->
+      <?php if(empty($is_sign_in)):?>
       <div class="form__item">
         <label for="message">Контактные данные <sup>*</sup></label>
         <textarea id="message" name="message" placeholder="Напишите как с вами связаться"><?=  isset($form)&&isset($form['message'])?$form['message']:'' ?></textarea>
         <span class="form__error">Напишите как с вами связаться</span>
       </div>
-      <span class="form__error form__error--bottom" >Пожалуйста, исправьте ошибки в форме.</span>
-      <button type="submit" class="button">Зарегистрироваться</button>
+      <?php endif;?>
 
-      <a class="text-link" href="#">Уже есть аккаунт</a>
+      <span class="form__error form__error--bottom" ><?= empty($errors['form'])?'Пожалуйста, исправьте ошибки в форме.': $errors['form'] ?></span>
+ 
+      <button type="submit" class="button"><?=empty($is_sign_in)?'Зарегистрироваться':'Войти'?></button>
+
+
+      <a class="text-link" href="<?=empty($is_sign_in)?'/sign_in.php':'/registration.php'?>"><?=empty($is_sign_in)?'Уже есть аккаунт':'Зарегистрироваться'?></a>
     </form>
   </main> 

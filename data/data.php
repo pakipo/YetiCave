@@ -177,36 +177,26 @@ function add_user($user){
         $email, $name, $pas,$cont);
        $ex = mysqli_stmt_execute($PE_USER_INSERT);
        if($ex){
-          return get_user_id(mysqli_insert_id($db_con));
+          return get_user(mysqli_insert_id($db_con));
        }else{
         return null;
        }
  }
 
 }
-function get_user_id($id){
-    global $db_con,$PE_USER_INSERT;
-    if (empty($db_con)) {
-        init();
-    }
-    if (isset($db_con)) {
-    $sql = "SELECT * FROM USERS WHERE id = $id";
-    $r = mysqli_query($db_con, $sql);
-    if (!$r) {
-        $msg = mysqli_error($db_con);
-        print('Ошибка БД: ' . $msg);
-    } else {
-        return  mysqli_fetch_assoc($r);
-    }
-}
-}
- function get_user_email($email){
+function get_user($par){
     global $db_con;
     if (empty($db_con)) {
         init();
     }
     if (isset($db_con)) {
-    $sql = "SELECT * FROM USERS WHERE email = $email";
+    $sql = 'SELECT * FROM USERS WHERE';
+    if(is_numeric($par)){
+        $sql .= " id = $par";
+    }else{
+        $sql .= " email = '" . $par . "'";
+    }
+
     $r = mysqli_query($db_con, $sql);
     if (!$r) {
         $msg = mysqli_error($db_con);
@@ -215,5 +205,5 @@ function get_user_id($id){
         return  mysqli_fetch_assoc($r);
     }
 }
- }
+}
 

@@ -1,12 +1,14 @@
 <?php 
 $form = null;
 $errors = [];
+$isReg = false;
 const PASS_MIN_LEN = 5;
 const PASS_MAX_LEN = 10;
 const NAME_MIN_LEN = 2;
 const NAME_MAX_LEN = 10;
-function validate_form(&$f){
-    global $form,$rules,$errors,$required;
+function validate_form(&$f,$isRegist = false){
+    global $form,$rules,$errors,$required,$isReg;
+    $isReg = $isRegist;
 if(isset($f)){
 $form = $f;
 }
@@ -22,7 +24,7 @@ return $errors;
 
 $rules = [
     'email'=> function($val,$isRauired){
-        global $err_msg;
+        global $err_msg,$isReg;
          if($isRauired && empty($val)){
             return $err_msg['email']['required'];
          }
@@ -31,7 +33,7 @@ $rules = [
            return $err_msg['email']['format'];
          }
          
-         if(isDublicateEmail($val)){
+         if($isReg&&isDublicateEmail($val)){
             return $err_msg['email']['dublicate'];
          }
     },

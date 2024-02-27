@@ -16,7 +16,7 @@ CREATE TABLE users (
     date_registration DATETIME DEFAULT CURRENT_TIMESTAMP,
     email VARCHAR(128) NOT NULL,
     user_name VARCHAR(128),
-    uesr_password CHAR(255),
+    user_password CHAR(255),
     contacts TEXT,
     UNIQUE(email),
     PRIMARY KEY(id)

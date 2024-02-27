@@ -10,7 +10,7 @@ $form = null;
 $errors = null;
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $form = filter_input_array(INPUT_POST,FILTER_DEFAULT);
-    $errors = validate_form($form);
+    $errors = validate_form($form,true);
 }
 
 if(empty($errors)&&isset($form)){
@@ -25,7 +25,7 @@ if(empty($errors)&&isset($form)){
     }
   
 }else{
-    $main = include_template('sign-up.php',[
+    $main = include_template('registration.php',[
         'category'=>$category,
         'errors'=> !empty($errors)?$errors:null,
         'form' => $form

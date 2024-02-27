@@ -10,7 +10,7 @@ ALTER TABLE lots MODIFY COLUMN date_finish DATETIME NULL;
 INSERT INTO users (
    email,
    user_name,
-   uesr_password,  
+   user_password,  
    contacts
      ) values (
 'user1@mail.com',

@@ -42,10 +42,10 @@
 <?php else: ?>
     <ul class="user-menu__list">
   <li class="user-menu__item">
-    <a href="/sign_up.php">Регистрация</a>
+    <a href="/registration.php">Регистрация</a>
   </li>
   <li class="user-menu__item">
-    <a href="#">Вход</a>
+    <a href="/sign_in.php">Вход</a>
   </li>
 </ul>
     <?php endif; ?>

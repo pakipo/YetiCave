@@ -12,7 +12,7 @@ function end_session(){
 function set_user($u = false){
     global $user,$is_auth;
     if(!empty($u)&&is_numeric($u)){
-        $usr = get_user_id($u);
+        $usr = get_user($u);
         if(!empty($usr)){
             $_SESSION['username'] = $usr['id'];
             $user = $usr;
@@ -27,7 +27,7 @@ function set_user($u = false){
        
     }else{
           if(!empty($_SESSION['username'])){
-            $usr = get_user_id($_SESSION['username']);
+            $usr = get_user($_SESSION['username']);
             $user = $usr;
             $is_auth = 1;
         }

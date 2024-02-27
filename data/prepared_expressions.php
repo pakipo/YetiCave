@@ -26,7 +26,7 @@ function set_pe_user_insert($db_con){
     $sql = "INSERT INTO users (
         email,
         user_name,
-        uesr_password,
+        user_password,
         contacts
   ) values (?,?,?,?)";
         $PE_USER_INSERT = mysqli_prepare($db_con, $sql);
