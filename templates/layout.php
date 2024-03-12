@@ -25,9 +25,9 @@
         <a class="main-header__logo" href="/">
             <img src="../img/logo.svg" width="160" height="39" alt="Логотип компании YetiCave">
         </a>
-        <form class="main-header__search" method="get" action="https://echo.htmlacademy.ru" autocomplete="off">
-            <input type="search" name="search" placeholder="Поиск лота">
-            <input class="main-header__search-btn" type="submit" name="find" value="Найти">
+        <form class="main-header__search" method="get" action="/search_lot.php" autocomplete="off">
+            <input type="search" name="search" placeholder="Поиск лота" value="<?=$find_string?$find_string:''?>">
+            <input class="main-header__search-btn" type="submit">
         </form>
         <?php if($is_auth == 1): ?>
         <a class="main-header__add-lot button" href="/add.php">Добавить лот</a>

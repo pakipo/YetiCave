@@ -727,7 +727,11 @@ main.container {
 .pagination-item-prev {
   margin-right: auto;
 }
-
+.pagination-item > a.disabled{
+    pointer-events: none;
+    cursor: default;
+    color: #d2d2d2;
+}
 .pagination-item-next {
   margin-left: auto;
   margin-right: 0;

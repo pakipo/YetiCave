@@ -205,5 +205,42 @@ function get_user($par){
         return  mysqli_fetch_assoc($r);
     }
 }
+
 }
 
+function search_lot($str,$limit=null,$offset=null){
+    global $db_con;
+    if (empty($db_con)) {
+        init();
+    }
+    if (isset($db_con)) {
+        $sql = 'SELECT * FROM lots WHERE MATCH (title,lot_description) AGAINST ("'.$str.'") >0';
+        if(!empty($limit)){
+            $sql.= ' LIMIT '.$limit.' OFFSET '.$offset;
+        }
+        $r = mysqli_query($db_con, $sql);
+        if (!$r) {
+            $msg = mysqli_error($db_con);
+            print('Ошибка БД: ' . $msg);
+        } else {
+            return  mysqli_fetch_all($r,MYSQLI_ASSOC);
+        }
+    }
+}
+
+function get_count_search_lot($str){
+    global $db_con;
+    if (empty($db_con)) {
+        init();
+    }
+    if (isset($db_con)) {
+        $sql = 'SELECT COUNT(id) AS count FROM lots WHERE MATCH (title,lot_description) AGAINST ("'.$str.'") >0';
+        $r = mysqli_query($db_con, $sql);
+        if (!$r) {
+            $msg = mysqli_error($db_con);
+            print('Ошибка БД: ' . $msg);
+        } else {
+            return (int) mysqli_fetch_assoc($r)['count'];
+        }
+    }
+}
